@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="author" content="usta">
+<meta name="description" content="single page web sitesi">
+<meta name="keywords" content="single, page, web">
+
+<title>Single Page Web</title>
+<link rel="icon" href="src/assets/user-syh.png">
+<link rel="stylesheet" href="src/assets/spw.css">
+</head>
+<body>
+	<div id="pncr" onclick="gizle()">
+		<img id="img-pncr" src="">
+	</div>
+	<div id="menu">
+		<div class="part-menu" onclick="fonksiyon(0)">
+			<img src="src/assets/cv.png" id="img-menu0" class="img-menu">
+			<p class="p-menu">HAKKIMIZDA</p>
+		</div>
+		<div class="part-menu" onclick="fonksiyon(1)">
+			<img src="src/assets/hashtag.png" id="img-menu1" class="img-menu">
+			<p class="p-menu">SOSYAL<br>MEDYA</p>
+		</div>
+		<div id="title">
+			<p id="portfolyo">MARKA</p>
+		</div>
+		<div class="part-menu" onclick="fonksiyon(2)">
+			<img src="src/assets/images.png" id="img-menu2" class="img-menu">
+			<p class="p-menu">GÖRSEL<br>ARŞİV</p>
+		</div>
+		<div class="part-menu" onclick="fonksiyon(3)">
+			<img src="src/assets/videos.png" id="img-menu3" class="img-menu">
+			<p class="p-menu">VİDEO<br>ARŞİV</p>
+		</div>
+		<div id="telif" onclick="sescal()">
+			<p id="marka">© Usta</p>
+		</div>
+	</div>
+	<div id="ekran">
+		<div id="cv" class="alan">
+			<img src="src/assets/anaresim.png" id="img-cv">
+			<img src="src/assets/anaresim2.png" id="img-cv2">
+		</div>
+		<div id="medya" class="alan">
+		  <div class="sosyal">
+			<a href="https://www.instagram.com/ustabeyzat/" class="a-medya">
+			<img src="src/assets/instagram-byz.png" class="img-medya">&nbsp;instagram</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://twitter.com/ustabeyzat" class="a-medya">
+			<img src="src/assets/twitter-byz.png" class="img-medya">&nbsp;twitter</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://www.facebook.com/ustabeyzat/" class="a-medya">
+			<img src="src/assets/facebook-byz.png" class="img-medya">&nbsp;facebook</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://www.youtube.com/@ustabeyzat/videos" class="a-medya">
+			<img src="src/assets/youtube-byz.png" class="img-medya">&nbsp;youtube</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://www.tiktok.com/@ustabeyzat" class="a-medya">
+			<img src="src/assets/tiktok-byz.png" class="img-medya">&nbsp;tiktok</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://tr.pinterest.com/ustabeyzat/" class="a-medya">
+			<img src="src/assets/pinterest-byz.png" class="img-medya">&nbsp;pinterest</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://www.linkedin.com/in/ustabeyzat/" class="a-medya">
+			<img src="src/assets/linkedin-byz.png" class="img-medya">&nbsp;linkedin</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://www.behance.net/ustabeyzat" class="a-medya">
+			<img src="src/assets/behance-byz.png" class="img-medya">&nbsp;béhance</a>
+		  </div>
+		  <div class="sosyal">
+			<a href="https://dribbble.com/ustabeyzat" class="a-medya">
+			<img src="src/assets/dribble-byz.png" class="img-medya">&nbsp;dribble</a>
+		  </div>
+		</div>
+		<div id="images" class="alan">
+		</div>
+		<div id="videos" class="alan">
+		</div>
+	</div>
+	<audio src="src/assets/usta-ses.mp3" id="ses" hidden>
+<script>
+var isayi = 2;
+var vsayi = 2;
+
+var konum = 0;
+window.addEventListener("scroll", function() {
+	var alan = document.getElementsByClassName("alan");
+	var partmenu = document.getElementsByClassName("part-menu");
+	var pmenu = document.getElementsByClassName("p-menu");
+
+  	if (scrollY < alan[0].offsetHeight && konum != 0) {
+		partmenu[konum].style.borderTop = "none";
+		partmenu[konum].style.borderBottom = "none";
+		partmenu[konum].style.transform = "scale(1)";
+		pmenu[konum].style.textShadow = "none";
+
+		document.title = pmenu[0].innerHTML.replace("<br>", " ");
+		partmenu[0].style.borderTop = "2px solid white";
+		partmenu[0].style.borderBottom = "2px solid white";
+		partmenu[0].style.transform = "scale(1.1)";
+		pmenu[0].style.textShadow = "0px 0px 8px white";
+
+		konum = 0;
+  	}
+  	var alan2 = alan[0].offsetHeight + alan[1].offsetHeight + 10;
+  	if (scrollY > alan[0].offsetHeight - 1 && scrollY < alan2 && konum != 1) {
+		var partmenu = document.getElementsByClassName("part-menu");
+		partmenu[konum].style.borderTop = "none";
+		partmenu[konum].style.borderBottom = "none";
+		partmenu[konum].style.transform = "scale(1)";
+		pmenu[konum].style.textShadow = "none";
+
+		document.title = pmenu[1].innerHTML.replace("<br>", " ");
+		partmenu[1].style.borderTop = "2px solid white";
+		partmenu[1].style.borderBottom = "2px solid white";
+		partmenu[1].style.transform = "scale(1.1)";
+		pmenu[1].style.textShadow = "0px 0px 8px white";
+
+		konum = 1;
+  	}
+  	var alan3 = alan2 + alan[2].offsetHeight + 10;
+  	if (scrollY > alan2 - 1 && scrollY < alan3 && konum != 2) {
+		var partmenu = document.getElementsByClassName("part-menu");
+		partmenu[konum].style.borderTop = "none";
+		partmenu[konum].style.borderBottom = "none";
+		partmenu[konum].style.transform = "scale(1)";
+		pmenu[konum].style.textShadow = "none";
+
+		document.title = pmenu[2].innerHTML.replace("<br>", " ");
+		partmenu[2].style.borderTop = "2px solid white";
+		partmenu[2].style.borderBottom = "2px solid white";
+		partmenu[2].style.transform = "scale(1.1)";
+		pmenu[2].style.textShadow = "0px 0px 8px white";
+
+		konum = 2;
+  	}
+  	if (scrollY > alan3 - 1 && konum != 3) {
+		var partmenu = document.getElementsByClassName("part-menu");
+		partmenu[konum].style.borderTop = "none";
+		partmenu[konum].style.borderBottom = "none";
+		partmenu[konum].style.transform = "scale(1)";
+		pmenu[konum].style.textShadow = "none";
+
+		document.title = pmenu[3].innerHTML.replace("<br>", " ");
+		partmenu[3].style.borderTop = "2px solid white";
+		partmenu[3].style.borderBottom = "2px solid white";
+		partmenu[3].style.transform = "scale(1.1)";
+		pmenu[3].style.textShadow = "0px 0px 8px white";
+
+		konum = 3;
+  	}
+});
+
+function tikla(i) {
+	var imgpncr = document.getElementById("img-pncr");
+	imgpncr.src = "src/images/" + i + ".png";
+
+	imgpncr.style.animation = "smalltobig 1s ease 1";
+    var kopya = imgpncr.cloneNode(true);
+    imgpncr.parentNode.replaceChild(kopya, imgpncr);
+
+	document.getElementById("pncr").style.visibility = "visible";
+	document.getElementsByTagName("body")[0].style.overflow = "hidden";
+}
+function iolustur () {
+	for (let i = 1; i < isayi+1; i++) {
+		let newDiv = document.createElement("div");
+		newDiv.id = "divimg" + i;
+		newDiv.className = "div-images";
+		newDiv.onclick = function () {tikla(i);}
+		document.getElementById("images").appendChild(newDiv);
+
+		let newImg = new Image();
+		newImg.src = "src/images/" + i + ".png";
+		newImg.id = "img" + i;
+		newImg.className = "img-images";
+		document.getElementById("divimg" + i).appendChild(newImg);
+	}
+	isayi = 0;
+}
+
+function volustur () {
+	for (let i = 1; i < vsayi+1; i++) {
+		let newDiv = document.createElement("div");
+		newDiv.id = "divideo" + i;
+		newDiv.className = "div-videos";
+		document.getElementById("videos").appendChild(newDiv);
+
+		let newVideo = document.createElement("video");
+		newVideo.src = "src/videos/" + i + ".mp4";
+		newVideo.id = "video" + i;
+		newVideo.className = "vid-videos";
+		newVideo.setAttribute("controls","controls");
+		document.getElementById("divideo" + i).appendChild(newVideo);
+	}
+	vsayi = 0;
+}
+
+window.onload = function() {
+	var pmenu = document.getElementsByClassName("p-menu");
+	document.title = pmenu[konum].innerHTML.replace("<br>", " ");
+	pmenu[konum].style.textShadow = "0px 0px 7px white";
+	var partmenu = document.getElementsByClassName("part-menu");
+	partmenu[konum].style.borderTop = "2px solid white";
+	partmenu[konum].style.borderBottom = "2px solid white";
+	partmenu[konum].style.transform = "scale(1.1)";
+
+	var telif = document.getElementById("telif");
+	if (window.innerHeight < 483 && window.innerWidth > 849) {
+		telif.style.visibility = "hidden";
+	}
+	else if (window.innerHeight < 368 && window.innerWidth > 449 && window.innerWidth < 850) {
+		telif.style.visibility = "hidden";
+	}
+	else if (window.innerHeight < 313 && window.innerWidth < 450) {
+		telif.style.visibility = "hidden";
+	}
+	else {
+		telif.style.visibility = "visible";
+
+		telif.style.animation = "etelif 1s ease 1";
+    	var kopya = telif.cloneNode(true);
+    	telif.parentNode.replaceChild(kopya, telif);
+	}
+
+	iolustur();
+	volustur();
+}
+window.onresize = function() {
+	window.scrollTo({
+  		top: scrollY+1,
+  		left: 0,
+  		behavior: "smooth"
+	});
+
+	var telif = document.getElementById("telif");
+	if (window.innerHeight < 483 && window.innerWidth > 849) {
+		telif.style.visibility = "hidden";
+	}
+	else if (window.innerHeight < 368 && window.innerWidth > 449 && window.innerWidth < 850) {
+		telif.style.visibility = "hidden";
+	}
+	else if (window.innerHeight < 313 && window.innerWidth < 450) {
+		telif.style.visibility = "hidden";
+	}
+	else {
+		telif.style.visibility = "visible";
+
+		telif.style.animation = "etelif 1s ease 1";
+    	var kopya = telif.cloneNode(true);
+    	telif.parentNode.replaceChild(kopya, telif);
+	}
+}
+
+function fonksiyon(n) {
+	var telif = document.getElementById("telif");
+	telif.style.animation = "etelif 1s ease 1";
+    var kopya = telif.cloneNode(true);
+    telif.parentNode.replaceChild(kopya, telif);
+
+	var toplam = 0;
+	for (let i = 0; i < n; i++) {
+		toplam += document.getElementsByClassName("alan")[i].offsetHeight + 10;
+	}
+	window.scrollTo({
+  		top: toplam,
+  		left: 0,
+  		behavior: "smooth"
+	});
+}
+
+function gizle() {
+	var imgpncr2 = document.getElementById("img-pncr");
+	imgpncr2.style.animation = "bigtosmall 1s ease 1";
+    var kopya2 = imgpncr2.cloneNode(true);
+    imgpncr2.parentNode.replaceChild(kopya2, imgpncr2);
+
+	setTimeout(function() {
+		document.getElementById("pncr").style.visibility = "hidden";
+		document.getElementsByTagName("body")[0].style.overflow = "visible";
+	}, 300);
+}
+
+function sescal() {
+	document.getElementById("ses").play();
+}
+</script>
+</body>
+</html>
