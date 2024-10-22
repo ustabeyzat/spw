@@ -25,5 +25,7 @@ var vsayi = buraya_son_videonun_numarasını_yaz;
 
 
 
-https://github.com/user-attachments/assets/d1594526-2764-4376-b738-c792ab57a476
+https://github.com/user-attachments/assets/f8f88439-aee2-4860-8802-f5329848885a
+
+
 
